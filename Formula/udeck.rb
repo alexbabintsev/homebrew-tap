@@ -5,13 +5,13 @@
 class Udeck < Formula
   desc "Headless daemon for the Ulanzi D200 stream deck"
   homepage "https://github.com/alexbabintsev/udeck"
-  version "0.1.2"
+  version "0.2.0"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/alexbabintsev/udeck/releases/download/v0.1.2/udeck_0.1.2_darwin_amd64.tar.gz"
-    sha256 "429a26af83f34237839424b3d05a8ba83e5dfbe2183fc2220d7306d94790256b"
+    url "https://github.com/alexbabintsev/udeck/releases/download/v0.2.0/udeck_0.2.0_darwin_amd64.tar.gz"
+    sha256 "0f1945b269a864719de321589d75d87e894b928e0cb820fe53a2bd042617fe2b"
 
     define_method(:install) do
       bin.install "udeck"
@@ -19,8 +19,8 @@ class Udeck < Formula
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/alexbabintsev/udeck/releases/download/v0.1.2/udeck_0.1.2_darwin_arm64.tar.gz"
-    sha256 "2ba7e0c5e6d4a758a4873065c6e49e9b6b7ff4b67ae1a188f9d614c9e6199940"
+    url "https://github.com/alexbabintsev/udeck/releases/download/v0.2.0/udeck_0.2.0_darwin_arm64.tar.gz"
+    sha256 "6a5daeb43ed7e61154f889e4150d4ceab44a62357246b51a65a85562095d5ea2"
 
     define_method(:install) do
       bin.install "udeck"

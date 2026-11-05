@@ -5,13 +5,13 @@
 class Udeck < Formula
   desc "Headless daemon for the Ulanzi D200 stream deck"
   homepage "https://github.com/alexbabintsev/udeck"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/alexbabintsev/udeck/releases/download/v0.1.0/udeck_0.1.0_darwin_amd64.tar.gz"
-    sha256 "64c7efbe312a5262d13a33ba19a3ad3bb030dd1d8e0326dac4107341251a365b"
+    url "https://github.com/alexbabintsev/udeck/releases/download/v0.1.1/udeck_0.1.1_darwin_amd64.tar.gz"
+    sha256 "487e4aa3ba72ea52f5e648bb1de4527dbb9ea179723045a37abb0f30276d8017"
 
     define_method(:install) do
       bin.install "udeck"
@@ -19,8 +19,8 @@ class Udeck < Formula
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/alexbabintsev/udeck/releases/download/v0.1.0/udeck_0.1.0_darwin_arm64.tar.gz"
-    sha256 "38bce4f1e095c57c13b9484920f17591661e1e0ca3b30d1528bcf4f44b6a3a7f"
+    url "https://github.com/alexbabintsev/udeck/releases/download/v0.1.1/udeck_0.1.1_darwin_arm64.tar.gz"
+    sha256 "279c6734793d2659700c68c8060f5fbd9b8829bbd93da3c58ef7f8119cc3445f"
 
     define_method(:install) do
       bin.install "udeck"
@@ -37,7 +37,20 @@ class Udeck < Formula
 
       Key and window actions need Accessibility access for the app that
       launches udeck, such as your terminal.
+
+      To start udeck now and at every login:
+        brew services start udeck
+      As a service, udeck itself needs that Accessibility access.
     EOS
+  end
+
+  service do
+    run [opt_bin/"udeck", "run"]
+    keep_alive successful_exit: false
+    process_type :interactive
+    environment_variables PATH: std_service_path_env
+    log_path var/"log/udeck.log"
+    error_log_path var/"log/udeck.log"
   end
 
   test do

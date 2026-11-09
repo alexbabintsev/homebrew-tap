@@ -5,20 +5,20 @@
 class Laraport < Formula
   desc "A terminal UI for managing Laravel apps inside Docker, locally or over SSH"
   homepage "https://laraport.app"
-  version "0.3.3"
+  version "0.3.4"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/alexbabintsev/laraport/releases/download/v0.3.3/laraport_0.3.3_darwin_amd64.tar.gz"
-      sha256 "4a178a865812ab4a1c0bdf6c4dc9ffcaef594a93d7fe19fc7a4dca64b3add5ad"
+      url "https://github.com/alexbabintsev/laraport/releases/download/v0.3.4/laraport_0.3.4_darwin_amd64.tar.gz"
+      sha256 "cf67815000163a28fe44dcbeaa324cf53942123849ad4916e9b0032f06a5b923"
 
       define_method(:install) do
         bin.install "laraport"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/alexbabintsev/laraport/releases/download/v0.3.3/laraport_0.3.3_darwin_arm64.tar.gz"
-      sha256 "4a580a9c63d74d9c6b8a2979e6501a649cee60c4727d43ec9123fc9b45c423c6"
+      url "https://github.com/alexbabintsev/laraport/releases/download/v0.3.4/laraport_0.3.4_darwin_arm64.tar.gz"
+      sha256 "54a0901113aaf5ac25750073400638280035d0c35c15534ba3501628810e39f8"
 
       define_method(:install) do
         bin.install "laraport"
@@ -28,15 +28,15 @@ class Laraport < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/alexbabintsev/laraport/releases/download/v0.3.3/laraport_0.3.3_linux_amd64.tar.gz"
-      sha256 "f6177b3ee4941115890bd6f50d148d272e8f59e75eff2567b895b53afdcaac94"
+      url "https://github.com/alexbabintsev/laraport/releases/download/v0.3.4/laraport_0.3.4_linux_amd64.tar.gz"
+      sha256 "0488150450a790caae2221fcfc1a7f44374643872b6bb95d5528b2f7334baf8d"
       define_method(:install) do
         bin.install "laraport"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/alexbabintsev/laraport/releases/download/v0.3.3/laraport_0.3.3_linux_arm64.tar.gz"
-      sha256 "1d663825c2327c2d74f02fac613672e1f83c44218500019fe81c8e5988d74cf6"
+      url "https://github.com/alexbabintsev/laraport/releases/download/v0.3.4/laraport_0.3.4_linux_arm64.tar.gz"
+      sha256 "cc50dd23804fe1eca2cdb5009ac386a4f216dd6c8daa1bc3c9f96437b9f5323e"
       define_method(:install) do
         bin.install "laraport"
       end
